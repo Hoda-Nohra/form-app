@@ -6,8 +6,10 @@ const MainPage = () => {
 
   return (
     <div className={styles.mainPage}>
-      <h1 className={styles.mainTitle}>Main Page</h1>
-      <div className={styles.btnctnr}>
+      <div className={styles.headerBar}>
+        <h1 className={styles.mainTitle}>Main Page</h1>
+      </div>
+      <div className={styles.buttonBar}>
         <button className={styles.mainBtn} onClick={() => navigate("/form")}>
           Create form
         </button>
