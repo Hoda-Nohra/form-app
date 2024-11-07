@@ -6,6 +6,8 @@ import styles from "./form.module.css";
 const Form: React.FC = () => {
   const navigate = useNavigate();
   const { formData, setFormData } = useStore();
+  const [isNameFocused, setISNameFocused] = useState<boolean>(false);
+  const [isPositionFocused, setIsPositionFocused] = useState<boolean>(false);
   const [submittedFormData, setSubmittedFormData] = useState({
     name: "",
     position: "",
@@ -46,7 +48,9 @@ const Form: React.FC = () => {
       <label className={styles.formLabel}>
         Name:
         <input
-          className={styles.formInput}
+          className={isNameFocused ? styles.borderFocus : styles.borderBlur}
+          onFocus={() => setISNameFocused(true)}
+          onBlur={() => setISNameFocused(false)}
           type="text"
           name="name"
           value={submittedFormData.name}
@@ -57,7 +61,9 @@ const Form: React.FC = () => {
       <label className={styles.formLabel}>
         Position:
         <input
-          className={styles.formInput}
+          className={isPositionFocused ? styles.borderFocus : styles.borderBlur}
+          onFocus={() => setIsPositionFocused(true)}
+          onBlur={() => setIsPositionFocused(false)}
           type="text"
           name="position"
           value={submittedFormData.position}
@@ -90,8 +96,12 @@ const Form: React.FC = () => {
         />
       </label>
       <br />
-      <button type="submit">Submit</button>
-      <button onClick={() => navigate("/")}>Back</button>
+      <button type="submit" className={styles.formBtn}>
+        Submit
+      </button>
+      <button onClick={() => navigate("/")} className={styles.formBtn}>
+        Back
+      </button>
     </form>
   );
 };

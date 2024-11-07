@@ -1,3 +1,27 @@
+:root {
+  --table-border-color: #ddd;
+  --table-header-bg-color: #3498db;
+  --table-header-text-color: #ffffff;
+  --table-row-bg-color: #ffffff;
+  --table-row-hover-bg-color: #f4f4f4;
+  --button-bg-color: #2ecc71;
+  --button-hover-bg-color: #27ae60;
+  --button-text-color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --table-border-color: #555555;
+    --table-header-bg-color: #8ecae6;
+    --table-header-text-color: #333333;
+    --table-row-bg-color: #444444;
+    --table-row-hover-bg-color: #666666;
+    --button-bg-color: #44b784;
+    --button-hover-bg-color: #388e6f;
+    --button-text-color: #ffffff;
+  }
+}
+
 .table {
   border-collapse: collapse;
   width: 100%;
@@ -5,23 +29,23 @@
 }
 
 .th {
-  border: 1px solid #ddd;
+  border: 1px solid var(--table-border-color);
   padding: 10px;
   text-align: left;
-  background-color: #3498db; 
-  color: #fff; /
+  background-color: var(--table-header-bg-color);
+  color: var(--table-header-text-color);
 }
 
 .td {
-  border: 1px solid #ddd;
+  border: 1px solid var(--table-border-color);
   padding: 10px;
   text-align: left;
-  background-color: #fff; 
+  background-color: var(--table-row-bg-color);
 }
 
 .btn {
-  background-color: #2ecc71; 
-  color: #fff;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -30,9 +54,9 @@
 }
 
 .btn:hover {
-  background-color: #27ae60; 
+  background-color: var(--button-hover-bg-color);
 }
 
 tr:hover {
-  background-color: #f4f4f4; 
+  background-color: var(--table-row-hover-bg-color);
 }

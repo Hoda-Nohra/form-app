@@ -2,8 +2,11 @@ import React from "react";
 import { useStore } from "../store";
 import { FaTrash } from "react-icons/fa";
 import styles from "./viewForms.module.css";
+import { useNavigate } from "react-router-dom";
+import AgeBarChart from "../ageBar";
 
 const SubmittedForms: React.FC = () => {
+  const navigate = useNavigate();
   const { formData, deleteFormData } = useStore();
   const handleDelete = (index: number) => {
     deleteFormData(index);
@@ -48,6 +51,8 @@ const SubmittedForms: React.FC = () => {
           ))}
         </tbody>
       </table>
+      <button onClick={() => navigate("/")}>Back</button>
+      <AgeBarChart />
     </div>
   );
 };

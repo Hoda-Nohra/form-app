@@ -1,3 +1,31 @@
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --title-color: #3498db;
+  --border-color: #ccc;
+  --hover-border-color: #3498db;
+  --focus-border-color: #3498db;
+  --input-bg-color: #f0f0f0;
+  --button-bg-color: #3498db;
+  --button-text-color: white;
+  --focus-shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #333333;
+    --text-color: #f0f0f0;
+    --title-color: #8ecae6;
+    --border-color: #555555;
+    --hover-border-color: #8ecae6;
+    --focus-border-color: #8ecae6;
+    --input-bg-color: #555555;
+    --button-bg-color: #8ecae6;
+    --button-text-color: #333333;
+    --focus-shadow-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
 .formCtnr {
   display: flex;
   flex-direction: column;
@@ -6,21 +34,23 @@
   max-width: 400px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #ffffff; 
+  background-color: var(--background-color);
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial;
 }
 
 .formTitle {
   font-size: 2rem;
-  color: #3498db; 
+  color: var(--title-color);
   margin-bottom: 20px;
+  font-family: Georgia;
 }
 
 .formLabel {
   margin-bottom: 15px;
   font-weight: bold;
-  color: #333; 
+  color: var(--text-color);
 }
 
 .formInput,
@@ -29,27 +59,33 @@
   width: 100%;
   padding: 10px;
   margin-top: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
+  background-color: var(--input-bg-color);
 }
 
 .formInput:hover,
 .formSelect:hover,
 .formCheckbox:hover {
-  border-color: #3498db; 
+  border-color: var(--hover-border-color);
 }
 
 .formInput:focus,
 .formSelect:focus,
 .formCheckbox:focus {
-  border-color: #2ecc71;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-color: var(--focus-border-color);
+  box-shadow: 0 0 5px var(--focus-shadow-color);
 }
 
-.formCtnr {
-  font-family: Arial;
+.formBtn {
+  background-color: var(--button-bg-color) !important;
+  color: var(--button-text-color) !important;
 }
 
-.formTitle {
-  font-family: Georgia;
+.borderFocus {
+  border: 3px solid var(--hover-border-color);
+}
+
+.borderBlur {
+  border: 3px solid var(--border-color);
 }

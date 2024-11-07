@@ -10,6 +10,7 @@ import {
 } from "recharts";
 import { useStore } from "./store";
 import CustomTooltip from "./toolTip";
+import "./App.css";
 
 const AgeBarChart: React.FC = () => {
   const { formData } = useStore();
@@ -25,13 +26,18 @@ const AgeBarChart: React.FC = () => {
   return (
     <div>
       <h1>Age Distribution</h1>
-      <BarChart width={600} height={300} data={data}>
+      <BarChart
+        width={600}
+        height={300}
+        data={data}
+        style={{ maxWidth: "100%", margin: "0 auto" }}
+      >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="ageGroup" />
         <YAxis />
         <Tooltip content={<CustomTooltip total={totalCount} />} />
         <Legend />
-        <Bar dataKey="count" fill="#3498db" barSize={20} />
+        <Bar dataKey="count" fill="var(--bar-color, #3498db)" barSize={20} />
       </BarChart>
     </div>
   );

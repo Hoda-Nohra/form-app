@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { FormData } from './type';
+import { create } from "zustand";
+import { FormData } from "./type";
 
 interface FormState {
   formData: FormData[];
@@ -10,9 +10,15 @@ interface FormState {
 const useStore = create<FormState>((set) => ({
   formData: [],
   setFormData: (data: FormData) =>
-    set((prevState) => ({...prevState, formData: [...prevState.formData, data] })),
+    set((prevState) => ({
+      ...prevState,
+      formData: [...prevState.formData, data],
+    })),
   deleteFormData: (index: number) =>
-    set((prevState) => ({...prevState, formData: prevState.formData.filter((_, i) => i !== index) })),
+    set((prevState) => ({
+      ...prevState,
+      formData: prevState.formData.filter((_, i) => i !== index),
+    })),
 }));
 
 export { useStore };
